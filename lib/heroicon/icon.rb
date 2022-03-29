@@ -78,7 +78,10 @@ module Heroicon
     end
 
     def file_path
-      File.join(Heroicon.root, "app/assets/images/heroicon/#{variant}/#{name}.svg")
+      extra_path = Heroicon.configuration.extra_path
+      paths = [File.join(Heroicon.root, "app/assets/images/heroicon/#{variant}/#{name}.svg")]
+      paths << File.join(extra_path, "#{variant}/#{name}.svg") if extra_path
+      Dir.glob(paths)[0]
     end
 
     def warning

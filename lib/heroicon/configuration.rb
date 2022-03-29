@@ -6,6 +6,7 @@ module Heroicon
 
     attr_accessor :variant
     attr_accessor :default_class
+    attr_accessor :extra_path
 
     def initialize
       @variant = DEFAULT_VARIANT
